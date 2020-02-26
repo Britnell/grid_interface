@@ -22,24 +22,8 @@
   <body >
   	Berp . . . . . 
   	
-  	<div id='console'></div>
+    <a href="/static/bt_test.html">BT test</a>
+    <a href="/static/ctrl_gsap.html">Grid interface</a>
 
-  	<script>
-  		const socket = io();
-  		socket.on('connect', ()=>{
-            console.log(" SOCKET CONNECTED ");
-            socket.emit('msg', 'hi socket its browser here');
-            
-          });
-  		socket.on('disconnect',()=>{
-            console.log(" !    !    ! DIS - CONNECTED ");
-          });
-  		socket.on('msg',(data)=>{
-            console.log(' socket-msg : ', data );
-          });
-
-
-
-  	</script>
   </body>
 </html>

@@ -6,7 +6,7 @@ const app = express()
 app.get('/', function (req, res) {
   // console.log("server : ", req, res );
   // res.send('Hello World')
-  res.sendFile(__dirname +'/public/ctrl_gsap.html');
+  res.sendFile(__dirname +'/index.html');
 })
 
 
@@ -14,5 +14,5 @@ app.get('/', function (req, res) {
 app.use('/static', express.static('public'))
 
 app.listen(3000, function () {
-  console.log('Node listening on port 3000')
-})
+  console.log('Node listening on port 3000');
+});

@@ -40,6 +40,9 @@
     
     <div class="butt" id="pair">PAIR</div>
     <div class="butt" id='left'>Left</div>
+    <div class="butt" id='right'>Right</div>
+    <div class="butt" id='fwd'>Forward</div>
+    <div class="butt" id='rvs'>Back</div>
 <script>
 
     // Obtain configured instance.
@@ -52,6 +55,7 @@ $('#pair')[0].onclick = function(){
     console.log(' paried ', dev, ' id : ', dev.id, ' > Connected:        ' + dev.gatt.connected);
     terminal._connectToDevice(dev).then(res=>{
       console.log(' Connection done ' );
+      $('#pair')[0].textContent = ' CONNECTED ';
       // Eo connect dev
     });
     // Eo request dev
@@ -59,8 +63,19 @@ $('#pair')[0].onclick = function(){
 }
 
 $('#left')[0].onclick = function(){
-  console.log( ' LEFT ');
-  terminal.send('#L');
+  terminal.send('l');
+}
+
+$('#right')[0].onclick = function(){
+  terminal.send('r');
+}
+
+$('#fwd')[0].onclick = function(){
+  terminal.send('f');
+}
+
+$('#rvs')[0].onclick = function(){
+  terminal.send('b');
 }
 
 
