@@ -6,7 +6,7 @@ const app = express()
 app.get('/', function (req, res) {
   // console.log("server : ", req, res );
   // res.send('Hello World')
-  res.sendFile(__dirname +'/public/ctrl_gsap.html');
+  res.sendFile(__dirname +'/public/ctrl_gsap-t.html');
 })
 
 
