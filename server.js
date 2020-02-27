@@ -5,7 +5,7 @@ const app = express()
 
 app.get('/', function (req, res) {
 
-  res.sendFile(__dirname +'/public/ctrl_gsap-t-tb.html');
+  res.sendFile(__dirname +'/public/ctrl_interface1.html');
 })
 
 
