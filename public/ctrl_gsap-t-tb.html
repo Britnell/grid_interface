@@ -111,7 +111,7 @@
 
   </head>
 <body>
-  <div class="wrapper">
+  <div id="wrapperdiv" class="wrapper">
       <div class="x s1"></div>
       <div class="x s1"></div>
       <div class="x s"></div>
@@ -386,41 +386,48 @@ dragPoints.push({x: 117, y: 163, r:90, id: 1 });
 dragPoints.push({x: 281, y: 140, r:0, id: 3 });
 dragPoints.push({x: 281, y: 279, r:0 , id: 2 });
 var last_click=0;
-var snapto = -1;
-var last_snap = 0;
+var snap = { last: 0, ix: -1, id: 0, to: -1 };
+
 
 drag = Draggable.create("#shelf",
 {
   type: "x,y" ,
   // edgeResistance: 0.65,
-  bounds: $('.wrapper')[0],
+  bounds: '#wrapperdiv',
   liveSnap: { points: dragPoints, radius: 45   },
   onDrag: function(pointer)
   {
     let pos = { x: gsap.getProperty('#shelf','x'), y: gsap.getProperty('#shelf','y') };
     
     // check for snap
-    snapto = -1;
+    let snapto = -1;
     dragPoints.forEach(function(p,i){
       if( p.x==pos.x && p.y==pos.y ){
         snapto = i;
       }
     });
 
+    snap.to = snapto;
+
     if(snapto!=-1){
       gsap.to('#shelf',{duration: 0.2, rotation: dragPoints[snapto].r });
+      snap.id = dragPoints[snapto].id;
     }
+    // snapto is array index idx of pos were snapping to
+    
     //
   },
   onDragStart: function(pointer){
     // hide button
-    gsap.set('#move',{opacity: 0});
+    gsap.to('#move',{duration: 0.2 , opacity: 0});
   },
   onDragEnd: function(pointerEvent){
     // Dragend
-    if(snapto!=-1){
+    if(snap.to!=-1){
       // show move button, then that triggers func
-      show_move_button();
+      console.log('snapping ' , snap );
+      if(snap.last!=snap.id)
+        show_move_button();
       // 
     }
     else{
@@ -469,11 +476,10 @@ drag = Draggable.create("#shelf",
     }
 
     function move_shelf(){
-      let nxt = dragPoints[snapto].id;
-      let rt = last_snap.toString()+nxt.toString() ;
+      let rt = snap.last.toString()+snap.id.toString() ;
       // console.log(' shelf from ', last_snap, ' to ', nxt, ' route ', rt );
       console.log(' moving : ', rt,'\t via ', routes[rt] );
-      last_snap = nxt;
+      snap.last = snap.id;
       // Eo func
     }
 </script>

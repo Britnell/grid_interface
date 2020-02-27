@@ -192,53 +192,7 @@
       }
     }
     
-
-    /*  F one square forw   ;       f  half a square 
-     *  B one square back   ;       b  half a square
-     *  r/R  turn 90 degree Right       l/L  turn 90 degre Left
-     */
-    var routes = {};
-    routes['01'] = 'FF';
-    routes['02'] = 'bRfFFF';
-    routes['03'] = 'RfFLFFfRFF';
-
-    routes['12'] = 'RfFLBBbRFF';
-    routes['13'] = 'fRfFFF';
-
-    routes['23'] = 'BBLFFFRFF';
-
-    // * create reverse of each route
-    for(id in routes){
-      // console.log( id, routes[id] );
-      routes[invert_str(id)]  = invert_route(routes[id]) ;
-    }
-    console.log(routes);
-
-    function invert_route(str){
-      let arr = str.split("").reverse();
-      arr.forEach((ch,i)=>{
-             if(ch=='f')          arr[i] = 'b';
-        else if(ch=='F')          arr[i] = 'B';
-        else if(ch=='b')          arr[i] = 'f';
-        else if(ch=='B')          arr[i] = 'F';
-        else if(ch=='R')          arr[i] = 'L';
-        else if(ch=='L')          arr[i] = 'R';
-      });
-      return arr.join("");
-    }
-
-    function invert_str(str){
-      return str.split("").reverse().join("");
-    }
-
-    function move_shelf(){
-      let nxt = dragPoints[snapto].id;
-      let rt = last_snap.toString()+nxt.toString() ;
-      // console.log(' shelf from ', last_snap, ' to ', nxt, ' route ', rt );
-      console.log(' moving : ', rt,'\t via ', routes[rt] );
-      last_snap = nxt;
-      // Eo func
-    }
+    
 
     
 
