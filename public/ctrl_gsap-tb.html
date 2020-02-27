@@ -192,55 +192,6 @@
       }
     }
     
-    //       ****       SHELF DRAGGING
-    //
-    var dragPoints = [];
-    dragPoints.push({x: 120, y: 120, r:90, id: 1 });
-    dragPoints.push({x: 320, y: 120, r:0 , id: 3 });
-    dragPoints.push({x: 120, y: 320, r:90, id: 0 });
-    dragPoints.push({x: 320, y: 320, r:0 , id: 2 });
-    var last_click=0;
-    var snapto = -1;
-
-    drag = Draggable.create("#shelf",
-    {
-      type: "x,y" ,
-      // edgeResistance: 0.65,
-      bounds: $('#gridcontainer'),
-      liveSnap: { points: dragPoints, radius: 60   },
-      onDrag: function(pointer){
-        let pos = { x: gsap.getProperty('#shelf','x'), y: gsap.getProperty('#shelf','y') };
-
-        snapto = -1;
-
-        dragPoints.forEach(function(p,i){
-          if( p.x==pos.x && p.y==pos.y ){
-            snapto = i;
-          }
-        });
-
-        if(snapto!=-1){
-          // console.log(" SNAP!!", snapto);
-          gsap.to('#shelf',{duration: 0.3, rotation: dragPoints[snapto].r });
-          // SHOW MOVE BUTTON  
-        }
-        else {
-          // hide button 
-        }
-        //
-      },
-      onDragEnd: function(pointerEvent){
-        // Dragend
-        if(snapto!=-1){
-          // show move button, then that triggers func
-          move_shelf();
-        }
-        else{
-          // mark shelf pos as invalid ?
-        }
-      }
-      //
-    });
 
     /*  F one square forw   ;       f  half a square 
      *  B one square back   ;       b  half a square
