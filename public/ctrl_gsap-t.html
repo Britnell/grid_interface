@@ -3,45 +3,55 @@
 <html>
   <head>
     <title>Berp</title>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-      <script src='/static/BluetoothTerminal_M.js'></script>
-      <script src='/static/gsap.min.js'></script>
-      <script src='/static/Draggable.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src='/static/BluetoothTerminal_M.js'></script>
+    <script src='/static/gsap.min.js'></script>
+    <script src='/static/Draggable.min.js'></script>
 
     <style>
       body {
         margin: 15px 0 0 15px;
+        background: #000;
       }
 
       .x {
-        background-color: #939699;
+        /* background-color: #f7bb9a; */
         height: 100%;
         padding:0;
         order: 1;
       }
 
-      .x:nth-child(even) { background-color: #c6c9ca; }
-      .s  {background-color: #50778f !important;}
-      .s1 {background-color: #8bcaee !important;}
+      /* .x:nth-child(even) { background-color: #c6c9ca; } */
+      .sH::after {content: ''; width: 95%; height: 195%; top: 3px; left: 3px; position: relative; display: block; overflow: hidden;
+                  background-color: #f7bb9a!important; border-radius: 20px; box-shadow: 0px 0px 10px 2px #d0755e;}
+      .sW::after {content: ''; width: 195%; height: 95%; top: 3px; left: 3px; position: relative; display: block; overflow: hidden;
+                  background-color: #f7bb9a!important; border-radius: 20px; box-shadow: 0px 0px 10px 2px #d0755e;}
 
       .wrapper {
-        max-width: 2560px;
-        height: 1280px;
+        max-width: 2520px;
+        height: 1420px;
         display: grid;
-        grid-template-columns: repeat(19, 5.2%);
+        grid-template-columns: repeat(18, 140px);
         overflow: hidden;
+        box-shadow: inset 0 0 10px #d0755e;
+        margin: auto;
+        background: #f7bb9a;
+        border-radius: 20px;
+        z-index: 5;
       }
+      .wrapperOfTheWrapper {width: 100%; position: relative; margin: auto; background: #000;}
 
-      @media screen and (max-width: 1200px) {.wrapper {height: 465px; max-width: 900px;}}
+      @media screen and (max-width: 1400px) {.wrapper { height: 644px; max-width: 1200px; grid-template-columns: repeat(18, 67px);}}
+      @media screen and (min-width: 1401px) and (max-width: 2000px) {.wrapper { height: 950px; max-width: 1700px; grid-template-columns: repeat(18, 94px);}}
 
 .toggle {
   cursor: pointer;
   display: inline-block;
-  margin: 10px 0;
+  margin: 10px 35px;
 }
 
 .toggle-switch {
@@ -96,20 +106,27 @@
 
   </head>
 <body>
-
+  <div class="wrapperOfTheWrapper">
   <div class="wrapper">
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
@@ -141,15 +158,21 @@
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
@@ -158,7 +181,6 @@
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
-    <div class="x s"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
@@ -172,26 +194,14 @@
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
-    <div class="x"></div>
-    <div class="x s"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
       <div class="x"></div>
@@ -212,14 +222,19 @@
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
@@ -251,36 +266,21 @@
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sH"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
-    <div class="x"></div>
+    <div class="x sW"></div>
     <div class="x"></div>
     <div class="x"></div>
     <div class="x"></div>
@@ -295,7 +295,7 @@
     <div class="toggle-switch"></div>
     <span class="toggle-label">Bluetooth</span>
   </label>
-
+</div>
 
   <script>
 var terminal = new BluetoothTerminal();
