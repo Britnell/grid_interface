@@ -323,9 +323,24 @@
 var terminal = new BluetoothTerminal();
 var device;
 
+function reconnect_bt(){
+  console.log(" gatt server disconnected! \n device : ", device );
+  if(!device.gatt.connected){
+    console.log(' lets reconnect ... ');
+    terminal._connectToDevice(dev).then(res=>{
+      console.log(' RECONNECTED ! ' );
+    });
+  }
+}
+
 $('.toggle')[0].onclick = function(){
-  console.log(' click ');
   terminal._requestBluetoothDevice().then(dev=>{
+    device = dev;
+
+    // device.removeEventListener('gattserverdisconnected', function(){
+    //   reconnect_bt();
+    // });
+
     // console.log(' paried ', dev, ' id : ', dev.id, ' > Connected:        ' + dev.gatt.connected);
     terminal._connectToDevice(dev).then(res=>{
       // console.log(' Connection done ' );
@@ -334,6 +349,8 @@ $('.toggle')[0].onclick = function(){
     // Eo request dev
   });
 }
+
+
 
 // ** Correct elements
 
@@ -481,8 +498,12 @@ drag = Draggable.create("#shelf",
     function move_shelf(){
       let rt = snap.last.toString()+snap.id.toString() ;
       // console.log(' shelf from ', last_snap, ' to ', nxt, ' route ', rt );
-      console.log(' moving : ', rt,'\t via ', routes[rt] );
+      console.log(' sending route : ', rt,'\t directions ', routes[rt] );
+      if(device)
+        if(device.gatt.connected)
+          terminal.send(routes[rt]);
       snap.last = snap.id;
+
       // Eo func
     }
 
