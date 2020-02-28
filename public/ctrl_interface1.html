@@ -14,7 +14,7 @@
 
     <style>
       body {
-        margin: 15px 0 0 15px;
+        margin: 15px;
         background: #000;
       }
 
@@ -32,10 +32,7 @@
                   background-color: #f7bb9a!important; border-radius: 20px; box-shadow: 0px 0px 10px 2px #d0755e;}
 
       .wrapper {
-        max-width: 2520px;
-        height: 1420px;
         display: grid;
-        grid-template-columns: repeat(18, 140px);
         overflow: hidden;
         box-shadow: inset 0 0 10px #d0755e;
         margin: auto;
@@ -45,13 +42,14 @@
       }
       .wrapperOfTheWrapper {width: 100%; position: relative; margin: auto; background: #000;}
 
-      @media screen and (max-width: 1400px) {.wrapper { height: 665px; max-width: 1200px; grid-template-columns: repeat(18, 66.5px);}}
-      @media screen and (min-width: 1401px) and (max-width: 2000px) {.wrapper { height: 943px; max-width: 1700px; grid-template-columns: repeat(18, 94.3px);}}
+      @media screen and (max-width: 1300px) {.wrapper { height: 610px; max-width: 1100px; grid-template-columns: repeat(18, 61px);}}
+      @media screen and (min-width: 1301px) and (max-width: 1800px) {.wrapper { height: 748px; max-width: 1350px; grid-template-columns: repeat(18, 74.8px);}}
+      @media screen and (min-width: 1801px) {.wrapper { max-width: 1850px; height: 1026px; grid-template-columns: repeat(18, 102.6px);}}
 
 .toggle {
   cursor: pointer;
   display: inline-block;
-  margin: 10px 35px;
+  margin: 18px;
 }
 
 .toggle-switch {
