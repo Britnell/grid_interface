@@ -45,8 +45,8 @@
       }
       .wrapperOfTheWrapper {width: 100%; position: relative; margin: auto; background: #000;}
 
-      @media screen and (max-width: 1400px) {.wrapper { height: 644px; max-width: 1200px; grid-template-columns: repeat(18, 67px);}}
-      @media screen and (min-width: 1401px) and (max-width: 2000px) {.wrapper { height: 950px; max-width: 1700px; grid-template-columns: repeat(18, 94px);}}
+      @media screen and (max-width: 1400px) {.wrapper { height: 665px; max-width: 1200px; grid-template-columns: repeat(18, 66.5px);}}
+      @media screen and (min-width: 1401px) and (max-width: 2000px) {.wrapper { height: 943px; max-width: 1700px; grid-template-columns: repeat(18, 94.3px);}}
 
 .toggle {
   cursor: pointer;
@@ -320,6 +320,33 @@
 </div>
 
   <script>
+      // FULLSCREENBABY!!
+    var elem = document.documentElement;
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+    openFullscreen();
+
 var terminal = new BluetoothTerminal();
 var device;
 
