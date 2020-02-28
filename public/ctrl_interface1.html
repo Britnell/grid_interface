@@ -362,9 +362,9 @@ $('.toggle')[0].onclick = function(){
   terminal._requestBluetoothDevice().then(dev=>{
     device = dev;
 
-    // device.removeEventListener('gattserverdisconnected', function(){
-    //   reconnect_bt();
-    // });
+    device.removeEventListener('gattserverdisconnected', function(){
+      reconnect_bt();
+    });
 
     // console.log(' paried ', dev, ' id : ', dev.id, ' > Connected:        ' + dev.gatt.connected);
     terminal._connectToDevice(dev).then(res=>{
@@ -426,10 +426,10 @@ function show_move_button(){
 //       ****       SHELF DRAGGING
 //
 var dragPoints = [];
-dragPoints.push({x: 172, y: 355, r:90, id: 0 });
-dragPoints.push({x: 172, y: 226, r:90, id: 1 });
-dragPoints.push({x: 406, y: 194, r:0, id: 3 });
-dragPoints.push({x: 406, y: 386, r:0 , id: 2 });
+dragPoints.push({x: 155, y: 338, r:90, id: 0 });
+dragPoints.push({x: 155, y: 216, r:90, id: 1 });
+dragPoints.push({x: 368, y: 186, r:0, id: 3 });
+dragPoints.push({x: 368, y: 368, r:0 , id: 2 });
 var last_click=0;
 var snap = { last: 0, id: 0, to: -1 };
 
