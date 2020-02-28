@@ -23,6 +23,7 @@
         height: 100%;
         padding:0;
         order: 1;
+        touch-action: none;
       }
 
       /* .x:nth-child(even) { background-color: #c6c9ca; } */
@@ -44,7 +45,8 @@
 
       @media screen and (max-width: 1300px) {.wrapper { height: 610px; max-width: 1100px; grid-template-columns: repeat(18, 61px);}}
       @media screen and (min-width: 1301px) and (max-width: 1800px) {.wrapper { height: 748px; max-width: 1350px; grid-template-columns: repeat(18, 74.8px);}}
-      @media screen and (min-width: 1801px) {.wrapper { max-width: 1850px; height: 1026px; grid-template-columns: repeat(18, 102.6px);}}
+      @media screen and (min-width: 1801px) {.wrapper { height: 1000px; max-width: 1800px; grid-template-columns: repeat(18, 100px);
+}}}
 
 .toggle {
   cursor: pointer;
